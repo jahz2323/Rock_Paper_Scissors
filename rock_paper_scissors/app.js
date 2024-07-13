@@ -17,46 +17,25 @@ let count = 0;
 
 const BotValue = document.querySelector("#Botvalue");
 const UserValue = document.querySelector("#Uservalue");
-const btns = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll(".button");
 
 
 function result(userchoice, compchoice) {
-    if (userchoice === 'rock') {
-        if (compchoice === 'rock') {
-            draw();
-        }
-        else if (compchoice === 'paper') {
-            lose();
-        }
-        else {
-            win();
-        }
-    }
-    else if (userchoice === 'paper') {
-        if (compchoice === 'rock') {
-            win();
-        }
-        else if (compchoice === 'paper') {
-            draw();
-        }
-        else {
-            lose();
-        }
-    }
-    else {
-        if (compchoice === 'rock') {
-            lose();
-        }
-        else if (compchoice === 'paper') {
-            win();
-        }
-        else {
-            draw();
-        }
+    if (userchoice === compchoice) {
+        draw();
+    } else if (
+        (userchoice === 'rock' && compchoice === 'scissors') ||
+        (userchoice === 'paper' && compchoice === 'rock') ||
+        (userchoice === 'scissors' && compchoice === 'paper')
+    ) {
+        win();
+    } else {
+        lose();
     }
 }
+
 function win() {
-    userValueElement.textContent = user_counter;
+    UserValueElement.textContent = user_counter;
     if(user_counter ==7){
     alert("You win! User: " + user_counter + " Bot: " + bot_counter);
     reset();
@@ -77,22 +56,33 @@ function lose() {
 function getComputerchoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length);
+    document.getElementById("finger").value=choices[randomIndex]; 
     return choices[randomIndex];
 }
 
+function play() {
+    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
+    audio.play();
+  }
+
+
+
 function start(userchoice) {
     const compchoice = getComputerchoice();
+    highlightChoice(userchoice,compchoice);
+    if(userchoice === 'test'){
+        play();
+    }
     result(userchoice, compchoice);
 }
 
 function highlightChoice(userchoice, compchoice) {
     document.querySelectorAll('.button').forEach(button => button.classList.remove('highlight'));
-    document.querySelector(`#${userchoice}Btn`).classList.add('highlight');
-    document.querySelector(`#${compchoice}Btn`).classList.add('highlight');
+    document.querySelector(`#${userchoice}`).classList.add('highlight');
+    document.querySelector(`#${compchoice}`).classList.add('highlight');
 }
 
 function waitForButtonClick() {
-    const buttons = document.querySelectorAll(".button");
     buttons.forEach(button => {
         button.addEventListener('click', function () {
             const userchoice = this.id;
