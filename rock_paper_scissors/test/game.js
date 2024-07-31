@@ -8,10 +8,12 @@ Rules -
     API usage -- soon 
 */
 //-------------------------------------------
+
 var user_counter = 0;
 var bot_counter = 0;
-const BotValue = document.querySelector("#Botvalue");
-const UserValue = document.querySelector("#Uservalue");
+
+const BotValueElement = document.querySelector("#Botvalue");
+const UserValueElement = document.querySelector("#Uservalue");
 const buttons = document.querySelectorAll(".button");
 
 function result(userchoice, compchoice) {
@@ -30,8 +32,8 @@ function result(userchoice, compchoice) {
 
 function win() {
     user_counter++;
-    UserValue.textContent = user_counter;
-    if (user_counter === 7) {
+    UserValueElement.textContent = user_counter;
+    if(user_counter === 7) {
         alert("You win! User: " + user_counter + " Bot: " + bot_counter);
         reset();
     }
@@ -43,8 +45,8 @@ function draw() {
 
 function lose() {
     bot_counter++;
-    BotValue.textContent = bot_counter;
-    if (bot_counter === 7) {
+    BotValueElement.textContent = bot_counter;
+    if(bot_counter === 7) {
         alert("You lose! User: " + user_counter + " Bot: " + bot_counter);
         reset();
     }
@@ -64,15 +66,16 @@ function play() {
 function start(userchoice) {
     const compchoice = getComputerchoice();
     highlightChoice(userchoice, compchoice);
-    alert("You picked: " + userchoice);
+    if(userchoice === 'test') {
+        play();
+    }
     result(userchoice, compchoice);
 }
 
 function highlightChoice(userchoice, compchoice) {
-    document.querySelector(`#${userchoice}`).classList.add('highlight_user');
-    document.querySelector(`#${compchoice}`).classList.add('highlight_bot');
     document.querySelectorAll('.button').forEach(button => button.classList.remove('highlight'));
-
+    document.querySelector(`#${userchoice}`).classList.add('highlight');
+    document.querySelector(`#${compchoice}`).classList.add('highlight');
 }
 
 function waitForButtonClick() {
@@ -84,18 +87,13 @@ function waitForButtonClick() {
     });
 }
 
-function reset_highlight() { 
-    document.querySelectorAll('.button').forEach(button => button.classList.remove('highlight_user'));
-    document.querySelectorAll('.button').forEach(button => button.classList.remove('highlight_bot'));
-}
 function reset() {
     alert("You have reset the game");
     user_counter = 0;
     bot_counter = 0;
-    UserValue.textContent = user_counter;
-    BotValue.textContent = bot_counter;
-    reset_highlight();
-    
+    UserValueElement.textContent = user_counter;
+    BotValueElement.textContent = bot_counter;
+    document.querySelectorAll('.button').forEach(button => button.classList.remove('highlight'));
 }
 
 waitForButtonClick();

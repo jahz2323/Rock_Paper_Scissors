@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        .button {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="score">
+            <span>User: <span id="Uservalue">0</span></span>
+            <span>Bot: <span id="Botvalue">0</span></span>
+        </div>
+        <div id="choices">
+            <div id="rock" class="button">Rock</div>
+            <div id="paper" class="button">Paper</div>
+            <div id="scissors" class="button">Scissors</div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

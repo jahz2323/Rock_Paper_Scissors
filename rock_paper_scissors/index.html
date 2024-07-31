@@ -1,54 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <h1>Welcome to Rock Paper Scissors</h1>
-        <p> The rules of the game are quite simple. </p>
-        <li>Rock wins against scissors. </li>
-        <li>Scissors win against paper. </li>
-        <li>Paper wins against rock. </li>
+        <p>The rules of the game are quite simple:</p>
+        <ul>
+            <li>Rock wins against scissors.</li>
+            <li>Scissors win against paper.</li>
+            <li>Paper wins against rock.</li>
+        </ul>
         <ol>
-            If no winner is found then the game will repeat until counter reaches 7
-            <hr>
-           
+            <li>If no winner is found then the game will repeat until counter reaches 7</li>
         </ol>
-        </ol>
-        
+        <hr>
         <div class="container2">
-            <h2> 
-              <!---  <button id="start" width="100" height="100" > Lets start!! </button> --> 
-            </h2>
-            <p class="emoji"> &#129299</p>
+            <h2></h2>
+            <p class="emoji"> &#129299;</p>
             <div class="scoreboard">
-                <p>User: <span id="UserValue">0</span></p>
-                <p>Bot: <span id="BotValue">0</span></p>
+                <p>User: <span id="Uservalue">0</span></p>
+                <p>Bot: <span id="Botvalue">0</span></p>
             </div>
         </div>
-
         <div class="div_buttons">
             <div id="rock" class="button">
                 <img src="images/rock.png" width="100" height="100" alt="Choose Rock">
             </div>
-            <div id="paper" class="button" >
+            <div id="paper" class="button">
                 <img src="images/paper.png" width="100" height="100" alt="Choose Paper">
             </div>
             <div id="scissors" class="button">
                 <img src="images/scissors.png" width="100" height="100" alt="Choose Scissors">
             </div>
         </div>
-        <p class="finger">
-            Brodie chooses.......
-            <img class="image" src="images/fingerup.png" width="100px" height="100px" alt="Computer choice">
-        </p>
     </div>
-    <script type="javascript"  src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

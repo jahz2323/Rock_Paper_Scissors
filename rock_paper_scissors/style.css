@@ -126,6 +126,11 @@ body {
   }
 }
 
-.highlight {
-  border: 5px solid yellow;
+.highlight_bot {
+  border: 5px solid blue;
+  border-radius: 2px;
+}
+.highlight_user {
+  border: 5px solid red;
+  border-radius: 2px;
 }

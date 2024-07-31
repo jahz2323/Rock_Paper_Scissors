@@ -1,0 +1,46 @@
+body{ 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('images/background.jpeg');
+    background-size: cover; /* This makes the image cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed;
+}
+
+nav{
+    background-color: transparent;
+    height: 100px;
+    width: auto;
+    align-items: center;
+    align-content: center;
+}
+.projects{ 
+    background-color: black;
+    width: auto;
+    height: 100px;
+    color: wheat;
+    
+}
+
+.searchbar{
+    background-color: black;
+    color: wheat;
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+main{
+    
+    height: 1000px; 
+    width: auto;
+}
+
+footer{
+    background-color: black;
+    color: wheat;
+}
