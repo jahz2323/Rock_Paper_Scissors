@@ -77,11 +77,16 @@ function parsedata(data){
 	// });
 
 }
-readCoordinates('coordinates.json', (coordinates) => {
+readCoordinates('coordina..tes.json', (coordinates) => {
     coordinates.forEach(coord => {
         fetchWeatherData(coord.latitude, coord.longitude);
     });
 });
+
+RequestWeather(location){
+	readCoordinates()
+}
+
 
 
 // Example of fetching weather data for different locations
